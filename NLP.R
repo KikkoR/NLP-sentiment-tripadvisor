@@ -1,8 +1,12 @@
+#Open R, click file, open script, and select this script
+#in the script window, you can either select edit > run all
+#to run this entire script,
+#or you can step through it by highlight each bit of code between comments and hitting ctrl+R
 
 #Libraries
+#in case the library are not already installed run "install.package('name_of_the_library')
 library(tm)#dealing with text
 library(dplyr)#dataframe manipulation
-library(lubridate)# for managing dates
 library(ggplot2)#for plotting
 library(scales)#for scaling 
 library(wordcloud)#wordcloud
@@ -13,7 +17,11 @@ library(sentimentr)# for sentiment analysis 2
 
 
 #Read file
-df=read.csv("/Users/kikkosmac/Desktop/reviews.csv",header=FALSE, col.names = c("Date", "V2", "Title", "review"))
+#be sure that path points to the directory that contains the dataset, 
+#in the case the project was downloaded from Github it should be ".../NLP-sentiment-tripadvisor
+path<-getwd()
+setwd(path)
+df=read.csv("reviews.csv",header=FALSE, col.names = c("Date", "V2", "Title", "review"))
 str(df)
 
 #Build Corpus
@@ -132,7 +140,7 @@ ggplot(head(freq.df,15), aes(reorder(word,freq), freq)) +
 
 
 ###SENTIMENT ANALYSIS###
-df=read.csv("/Users/kikkosmac/Desktop/reviews.csv",header=FALSE, col.names = c("Date", "V2", "Title", "review"))
+df=read.csv("reviews.csv",header=FALSE, col.names = c("Date", "V2", "Title", "review"))
 sentiment <- iconv(df$review)
 
 #Obtain sentiment scores->Syhouze
