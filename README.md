@@ -12,3 +12,12 @@ The scope of the work is to support Hotel Lac Salin owners in their marketing st
 
 # How to run
 To run the project, download the files contained in the repo, open "NLP.R" with RStudio and run it, ensure that the enviroment is opened in the right working directory and reviews.csv is present in that directory.
+
+# Libraries to import
+- tm
+- dplyr
+- ggplot2
+- wordcloud
+- RWeka
+- syuzhet
+- sentimentr
